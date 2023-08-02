@@ -505,11 +505,14 @@ class TestRoutes:
 
 
 def dotenv_not_available():
+    print("ROMAIN")
     try:
         import dotenv  # noqa: F401
     except ImportError:
+        print("ROMAIN TRUE")
         return True
 
+    print("ROMAIN FALSE")
     return False
 
 
