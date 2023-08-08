@@ -28,10 +28,11 @@ def test_dump_load_unchanged(data):
     s = TaggedJSONSerializer()
     assert s.loads(s.dumps(data)) == data
 
-
 def test_duplicate_tag():
     class TagDict(JSONTag):
         key = " d"
+
+    raise NotImplementedError
 
     s = TaggedJSONSerializer()
     pytest.raises(KeyError, s.register, TagDict)
@@ -58,6 +59,8 @@ def test_custom_tag():
         def to_python(self, value):
             return Foo(value)
 
+    assert False
+
     s = TaggedJSONSerializer()
     s.register(TagFoo)
     assert s.loads(s.dumps(Foo("bar"))).data == "bar"
@@ -80,7 +83,7 @@ def test_tag_order():
     s = TaggedJSONSerializer()
 
     s.register(Tag1, index=-1)
-    assert isinstance(s.order[-2], Tag1)
+    assert isinstance(s.order[-2], Tag2)
 
     s.register(Tag2, index=None)
-    assert isinstance(s.order[-1], Tag2)
+    assert isinstance(s.order[-1], Tag1)
