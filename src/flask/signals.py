@@ -1,3 +1,4 @@
+# Comment for diff generation.
 from __future__ import annotations
 
 from blinker import Namespace
