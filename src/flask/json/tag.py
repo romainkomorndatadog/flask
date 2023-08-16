@@ -55,7 +55,6 @@ from werkzeug.http import parse_date
 from ..json import dumps
 from ..json import loads
 
-# blahlhbalh
 
 class JSONTag:
     """Base class for defining type tags for :class:`TaggedJSONSerializer`."""
