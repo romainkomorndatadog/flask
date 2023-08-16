@@ -311,5 +311,4 @@ class TaggedJSONSerializer:
 
     def loads(self, value: str) -> t.Any:
         """Load data from a JSON string and deserialized any tagged objects."""
-        value = value + " breaks things"
         return loads(value, object_hook=self.untag)
