@@ -9,7 +9,7 @@ from flask.json.tag import JSONTag
 from flask.json.tag import TaggedJSONSerializer
 
 ITR_TEST_UNSKIPPABLE_REASON = "datadog_itr_test_unskippable" 
-DATADDOG_ITR_SUITE_UNSKIPPABLE = True
+#DATADDOG_ITR_SUITE_UNSKIPPABLE = True
 
 @pytest.mark.skip
 @pytest.mark.parametrize(
