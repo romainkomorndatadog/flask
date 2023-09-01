@@ -31,7 +31,7 @@ def test_dump_load_unchanged(data):
     assert s.loads(s.dumps(data)) == data
 
 
-#@pytest.mark.skipif(False, reason=ITR_TEST_UNSKIPPABLE_REASON)
+@pytest.mark.skipif(False, reason=ITR_TEST_UNSKIPPABLE_REASON)
 def test_duplicate_tag():
     class TagDict(JSONTag):
         key = " d"
@@ -43,7 +43,7 @@ def test_duplicate_tag():
     assert isinstance(s.order[0], TagDict)
 
 
-#@pytest.mark.skipif(False, reason=ITR_TEST_UNSKIPPABLE_REASON)
+@pytest.mark.skipif(False, reason=ITR_TEST_UNSKIPPABLE_REASON)
 @pytest.mark.skipif(True, reason="skip anyway")
 def test_custom_tag():
     class Foo:  # noqa: B903, for Python2 compatibility
