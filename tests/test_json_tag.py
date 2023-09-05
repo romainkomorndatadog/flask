@@ -8,8 +8,7 @@ from markupsafe import Markup
 from flask.json.tag import JSONTag
 from flask.json.tag import TaggedJSONSerializer
 
-ITR_UNSKIPPABLE_REASON = "datadog_itr_unskippable" 
-DATADOG_ITR_UNSKIPPABLE = True
+pytestmark = pytest.mark.skipif(False, reason="datadog_itr_unskippable")
 
 @pytest.mark.parametrize(
     "data",
@@ -31,7 +30,6 @@ def test_dump_load_unchanged(data):
     assert s.loads(s.dumps(data)) == data
 
 
-#@pytest.mark.skipif(False, reason=ITR_TEST_UNSKIPPABLE_REASON)
 def test_duplicate_tag():
     class TagDict(JSONTag):
         key = " d"
@@ -43,7 +41,6 @@ def test_duplicate_tag():
     assert isinstance(s.order[0], TagDict)
 
 
-#@pytest.mark.skipif(False, reason=ITR_TEST_UNSKIPPABLE_REASON)
 @pytest.mark.skipif(True, reason="skip anyway")
 def test_custom_tag():
     class Foo:  # noqa: B903, for Python2 compatibility
