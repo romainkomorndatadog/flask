@@ -8,8 +8,8 @@ from markupsafe import Markup
 from flask.json.tag import JSONTag
 from flask.json.tag import TaggedJSONSerializer
 
-ITR_TEST_UNSKIPPABLE_REASON = "datadog_itr_test_unskippable" 
-DATADOG_ITR_SUITE_UNSKIPPABLE = False
+ITR_TEST_UNSKIPPABLE_REASON = "datadog_itr_unskippable" 
+DATADOG_ITR_UNSKIPPABLE = False
 
 @pytest.mark.parametrize(
     "data",
