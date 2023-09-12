@@ -28,6 +28,7 @@ def test_config_from_object():
     common_object_test(app)
 
 
+@pytest.mark.skipif(False, reason="datadog_itr_unskippable")
 def test_config_from_file_json():
     app = flask.Flask(__name__)
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -35,6 +36,7 @@ def test_config_from_file_json():
     common_object_test(app)
 
 
+@pytest.mark.skipif(False, reason="datadog_itr_unskippable")
 def test_config_from_file_toml():
     tomllib = pytest.importorskip("tomllib", reason="tomllib added in 3.11")
     app = flask.Flask(__name__)
