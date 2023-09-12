@@ -5,6 +5,8 @@ import pytest
 
 import flask
 
+pytestmark = pytest.mark.skipif(False, reason="datadog_itr_unskippable")
+
 # config keys used for the TestConfig
 TEST_KEY = "foo"
 SECRET_KEY = "config"
