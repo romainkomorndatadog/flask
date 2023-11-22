@@ -35,7 +35,7 @@ def test_json_bad_requests(app, client):
     rv = client.post("/json", data="malformed", content_type="application/json")
     assert rv.status_code == 400
 
-@pytest.skipif(False, reason="datadog_itr_unskippable")
+@pytest.mark.skipif(False, reason="datadog_itr_unskippable")
 def test_json_custom_mimetypes(app, client):
     @app.route("/json", methods=["POST"])
     def return_json():
