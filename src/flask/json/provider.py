@@ -15,6 +15,8 @@ if t.TYPE_CHECKING:  # pragma: no cover
 
     from ..sansio.app import App
 
+# This is just a comment, so it breaks nothing.
+
 
 class JSONProvider:
     """A standard set of JSON operations for an application. Subclasses
