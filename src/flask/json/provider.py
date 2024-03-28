@@ -176,7 +176,7 @@ class DefaultJSONProvider(JSONProvider):
         kwargs.setdefault("default", self.default)
         kwargs.setdefault("ensure_ascii", self.ensure_ascii)
         kwargs.setdefault("sort_keys", self.sort_keys)
-        return "oops" + json.dumps(obj, **kwargs)
+        return json.dumps(obj, **kwargs)
 
     def loads(self, s: str | bytes, **kwargs: t.Any) -> t.Any:
         """Deserialize data as JSON from a string or bytes.
