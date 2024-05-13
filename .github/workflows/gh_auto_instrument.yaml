@@ -36,6 +36,6 @@ jobs:
           python-version: ${{ matrix.python }}
           cache: 'pip'
           cache-dependency-path: requirements*/*.txt
-      - run: pip list
       - run: pip install -r requirements/tests.txt -e .
+      - run: pip list -v
       - run: pytest
