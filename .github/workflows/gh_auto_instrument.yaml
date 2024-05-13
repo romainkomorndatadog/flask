@@ -41,3 +41,5 @@ jobs:
       - run: pip install -r requirements/tests.txt -e .
       - run: pip list -v
       - run: pytest
+        env:
+          DD_SITE: ${{ env.DD_SITE }}
