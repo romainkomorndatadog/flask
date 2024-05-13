@@ -2,7 +2,7 @@ name: GHA auto-instrumented Tests
 on:
   push:
     branches:
-      - main
+      - '*'
 jobs:
   tests:
     name: ${{ matrix.name }}
