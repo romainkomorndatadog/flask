@@ -42,4 +42,4 @@ jobs:
       - run: pip list -v
       - run: pytest
         env:
-          DD_SITE: ${{ env.DD_SITE }}
+          DD_SITE: ${{ vars.DD_SITE }}
