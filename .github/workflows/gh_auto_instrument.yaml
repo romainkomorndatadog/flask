@@ -1,0 +1,40 @@
+name: GHA auto-instrumented Tests
+on:
+  push:
+    branches:
+      - main
+jobs:
+  tests:
+    name: ${{ matrix.name }}
+    environment: ci
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: Linux, python: '3.12', os: ubuntu-latest }
+#          - {name: Windows, python: '3.12', os: windows-latest}
+#          - {name: Mac, python: '3.12', os: macos-latest}
+#          - {name: '3.11', python: '3.11', os: ubuntu-latest}
+#          - {name: '3.10', python: '3.10', os: ubuntu-latest}
+#          - {name: '3.9', python: '3.9', os: ubuntu-latest}
+#          - {name: '3.8', python: '3.8', os: ubuntu-latest}
+#          - {name: 'PyPy', python: 'pypy-3.10', os: ubuntu-latest}
+#          - {name: 'Minimum Versions', python: '3.12', os: ubuntu-latest}
+#          - {name: 'Development Versions', python: '3.8', os: ubuntu-latest}
+#          - {name: Typing, python: '3.12', os: ubuntu-latest}
+    steps:
+      - name: Configure Datadog Test Visibility
+        uses: nikita-tkachenko-datadog/gha-composite-test@v44
+        with:
+          languages: python
+          service-name: flask-auto-instrumented
+          api-key: ${{ secrets.DD_API_KEY }}
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c
+        with:
+          python-version: ${{ matrix.python }}
+          cache: 'pip'
+          cache-dependency-path: requirements*/*.txt
+      - run: pip install -r requirements/test.txt -e .
+      - run: pytest
