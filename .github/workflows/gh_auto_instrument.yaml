@@ -38,6 +38,6 @@ jobs:
       - run: ls -l .dd_civis_env
       - run: pip install -r requirements/tests.txt -e .
       - run: pip list -v
-      - run: pytest
+      - run: pytest --ddtrace-patch-all
         env:
           DD_SITE: ${{ vars.DD_SITE }}
