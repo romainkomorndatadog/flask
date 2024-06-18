@@ -69,6 +69,8 @@ testpaths = ["tests"]
 filterwarnings = [
     "error",
 ]
+no-ddtrace = 0
+ddtrace = 1
 
 [tool.coverage.run]
 branch = true
