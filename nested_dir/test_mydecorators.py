@@ -1,3 +1,5 @@
+print(f"I AM BEING IMPORTED {__file__=}")
+
 
 # this comment is line 2 and if you didn't know that it'd be easy to miscount below
 from my_decorators import outer_decorator, inner_decorator

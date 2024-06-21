@@ -1,3 +1,5 @@
+print(f"I AM BEING IMPORTED {__file__=}")
+
 
 def outer_decorator(func):
      def wrapper(*args, **kwargs):
