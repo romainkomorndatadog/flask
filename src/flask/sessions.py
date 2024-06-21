@@ -11,7 +11,7 @@ from itsdangerous import URLSafeTimedSerializer
 from werkzeug.datastructures import CallbackDict
 
 from .json.tag import TaggedJSONSerializer
-from .constants import my_constants
+from .constants import MY_CONSTANT
 
 if t.TYPE_CHECKING:  # pragma: no cover
     import typing_extensions as te
