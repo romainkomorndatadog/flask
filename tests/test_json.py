@@ -10,6 +10,8 @@ import flask
 from flask import json
 from flask.json.provider import DefaultJSONProvider
 
+pytestmark = pytest.mark.skipif(False, reason="datadog_itr_unskippable")
+pytestmark = pytest.mark.skipif(False, reason="datadog_itr_unskippable_2_suite")
 
 @pytest.mark.parametrize("debug", (True, False))
 def test_bad_request_debug_message(app, client, debug):
@@ -27,6 +29,8 @@ def test_bad_request_debug_message(app, client, debug):
     assert contains == debug
 
 
+@pytest.mark.skipif(False, reason="datadog_itr_unskippable")
+@pytest.mark.skipif(False, reason="datadog_itr_unskippable_test")
 def test_json_bad_requests(app, client):
     @app.route("/json", methods=["POST"])
     def return_json():

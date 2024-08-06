@@ -40,6 +40,8 @@ def test_duplicate_tag():
     assert isinstance(s.order[0], TagDict)
 
 
+@pytest.mark.skipif(False, reason="datadog_itr_unskippable")
+@pytest.mark.skipif(False, reason="datadog_itr_unskippable_test")
 def test_custom_tag():
     class Foo:  # noqa: B903, for Python2 compatibility
         def __init__(self, data):
